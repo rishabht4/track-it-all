@@ -1,8 +1,10 @@
+/* App.css */
 .App {
   font-family: Arial, sans-serif;
   text-align: center;
 }
 
+/* Horizontal Menu */
 .horizontal-menu ul {
   list-style-type: none;
   margin: 0;
@@ -29,6 +31,7 @@
   background-color: #111;
 }
 
+/* Table */
 table {
   width: 80%;
   margin: 20px auto;
@@ -45,4 +48,33 @@ table th {
   padding-bottom: 12px;
   background-color: #4CAF50;
   color: white;
+}
+
+/* Weekly Summary Table */
+.weekly-summary-table {
+  width: 80%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  margin-top: 40px;
+}
+
+.weekly-summary-table th, .weekly-summary-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+}
+
+.weekly-summary-table th {
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+}
+
+.weekly-summary-table td {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  table, .weekly-summary-table {
+    width: 100%;
+  }
 }
