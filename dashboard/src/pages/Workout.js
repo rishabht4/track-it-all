@@ -1,11 +1,11 @@
+// src/pages/Workout.js
 import React, { useEffect, useState } from "react";
 import Papa from "papaparse";
 
-const CSVReader = () => {
+const Workout = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    // Fetch CSV from your GitHub repo
     const fetchCSV = async () => {
       const response = await fetch(
         "https://raw.githubusercontent.com/rishabht4/track-it-all/main/data.csv"
@@ -24,7 +24,7 @@ const CSVReader = () => {
 
   return (
     <div>
-      <h1>CSV Data</h1>
+      <h1>Workout Data</h1>
       <table>
         <thead>
           <tr>
@@ -33,26 +33,16 @@ const CSVReader = () => {
             <th>Workout Calories</th>
             <th>Workout HR Mean</th>
             <th>Workout HR Max</th>
-            <th>Resting HR (10am)</th>
-            <th>Resting HR (4pm)</th>
-            <th>Resting HR (9pm)</th>
-            <th>Sleep Total</th>
-            <th>Sleep Light</th>
-            <th>Sleep Deep</th>
-            <th>Sleep REM</th>
-            <th>Calories Intake</th>
-            <th>Protein Intake</th>
-            <th>Cardio Calories</th>
-            <th>Cardio HR Max</th>
-            <th>Cardio HR Mean</th>
           </tr>
         </thead>
         <tbody>
           {data.map((row, index) => (
             <tr key={index}>
-              {Object.values(row).map((val, i) => (
-                <td key={i}>{val}</td>
-              ))}
+              <td>{row["date"]}</td>
+              <td>{row["workout done?"] === "true" ? "Yes" : "No"}</td>
+              <td>{row["workout calories"]}</td>
+              <td>{row["workout heartrate mean"]}</td>
+              <td>{row["workout heartrate max"]}</td>
             </tr>
           ))}
         </tbody>
@@ -61,4 +51,4 @@ const CSVReader = () => {
   );
 };
 
-export default CSVReader;
+export default Workout;
