@@ -1,21 +1,48 @@
+.App {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
 .horizontal-menu ul {
-  display: flex;
   list-style-type: none;
+  margin: 0;
   padding: 0;
+  overflow: hidden;
   background-color: #333;
+  display: flex;
+  justify-content: center;
 }
 
 .horizontal-menu li {
-  padding: 14px 20px;
+  float: left;
 }
 
 .horizontal-menu li a {
+  display: block;
   color: white;
   text-align: center;
+  padding: 14px 20px;
   text-decoration: none;
-  display: block;
 }
 
 .horizontal-menu li a:hover {
   background-color: #111;
+}
+
+table {
+  width: 80%;
+  margin: 20px auto;
+  border-collapse: collapse;
+}
+
+table th, table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: #4CAF50;
+  color: white;
 }

@@ -11,7 +11,7 @@ const Workout = () => {
       );
       const csvText = await response.text();
       Papa.parse(csvText, {
-        header: true,  // First row is the header
+        header: true,
         skipEmptyLines: true,
         complete: (results) => {
           setData(results.data);
@@ -30,6 +30,7 @@ const Workout = () => {
           <tr>
             <th>Date</th>
             <th>Workout Done?</th>
+            <th>Workout Duration</th>
             <th>Workout Calories</th>
             <th>Workout HR Mean</th>
             <th>Workout HR Max</th>
@@ -40,6 +41,7 @@ const Workout = () => {
             <tr key={index}>
               <td>{row["Date"]}</td>
               <td>{row["Workout Done?"]}</td>
+              <td>{row["Workout Duration"]}</td>
               <td>{row["Workout Calories"]}</td>
               <td>{row["Workout Heart Rate Mean"]}</td>
               <td>{row["Workout Heart Rate Max"]}</td>
