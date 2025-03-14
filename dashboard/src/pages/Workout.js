@@ -1,4 +1,3 @@
-// src/pages/Workout.js
 import React, { useEffect, useState } from "react";
 import Papa from "papaparse";
 
@@ -12,7 +11,8 @@ const Workout = () => {
       );
       const csvText = await response.text();
       Papa.parse(csvText, {
-        header: true,
+        header: true,  // First row is the header
+        skipEmptyLines: true,
         complete: (results) => {
           setData(results.data);
         },
@@ -38,11 +38,11 @@ const Workout = () => {
         <tbody>
           {data.map((row, index) => (
             <tr key={index}>
-              <td>{row["date"]}</td>
-              <td>{row["workout done?"] === "true" ? "Yes" : "No"}</td>
-              <td>{row["workout calories"]}</td>
-              <td>{row["workout heartrate mean"]}</td>
-              <td>{row["workout heartrate max"]}</td>
+              <td>{row["Date"]}</td>
+              <td>{row["Workout Done?"]}</td>
+              <td>{row["Workout Calories"]}</td>
+              <td>{row["Workout Heart Rate Mean"]}</td>
+              <td>{row["Workout Heart Rate Max"]}</td>
             </tr>
           ))}
         </tbody>
