@@ -1,6 +1,6 @@
 Date,Workout Done?,Workout Duration,Workout Calories,Workout Heart Rate Mean,Workout Heart Rate Max,Resting Heart Rate at 10am,Resting Heart Rate at 4pm,Resting Heart Rate at 9pm,Sleep Time,Sleep Total,Sleep Light,Sleep Deep,Sleep REM,Calories Intake,Protein Intake,Cardio Calories,Cardio Heart Rate Max,Cardio Heart Rate Mean
 2025-03-14,Yes,45,500,120,150,80,85,75,10:30pm to 6am,7,3,2,2,2500,150,300,160,130
-2025-03-15,No,0,0,0,0,78,82,73,11:00pm to 5:30am,6.5,2.5,2,2,2200,140,200,150,120
+2025-03-15,No,NA,NA,NA,NA,78,82,73,11:00pm to 5:30am,6.5,2.5,2,2,2200,140,200,150,120
 2025-03-16,Yes,50,550,125,155,77,80,74,9:45pm to 5:45am,8,3.5,2.5,2,2400,130,250,160,135
 2025-03-17,Yes,40,480,115,145,79,84,76,11:15pm to 6:15am,6,2.5,1.5,2,2300,160,220,155,125
-2025-03-18,No,0,0,0,0,81,83,78,10:50pm to 6:20am,7.5,3,2,2.5,2100,135,280,150,140
+2025-03-18,No,NA,NA,NA,NA,81,83,78,10:50pm to 6:20am,7.5,3,2,2.5,2100,135,280,150,140
