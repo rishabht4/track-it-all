@@ -24,6 +24,18 @@ const Sleep = () => {
     );
   };
 
+  const timeToMinutes = (time) => {
+    if (time === "NA") return 0;
+    const [hours, minutes] = time.split(":").map(Number);
+    return hours * 60 + minutes;
+  };
+
+  const minutesToTime = (minutes) => {
+    const hours = Math.floor(minutes / 60);
+    const mins = minutes % 60;
+    return `${String(hours).padStart(2, "0")}:${String(mins).padStart(2, "0")}`;
+  };
+
   const calculateWeeklySummary = (data) => {
     const currentWeekData = data.filter((row) => {
       const rowDate = new Date(row.Date);
@@ -32,10 +44,10 @@ const Sleep = () => {
       return rowDate >= startOfWeek;
     });
 
-    const totalSleep = currentWeekData.reduce((acc, curr) => acc + parseFloat(curr["Sleep Total"] || 0), 0);
-    const totalLightSleep = currentWeekData.reduce((acc, curr) => acc + parseFloat(curr["Sleep Light"] || 0), 0);
-    const totalDeepSleep = currentWeekData.reduce((acc, curr) => acc + parseFloat(curr["Sleep Deep"] || 0), 0);
-    const totalRemSleep = currentWeekData.reduce((acc, curr) => acc + parseFloat(curr["Sleep REM"] || 0), 0);
+    const totalSleep = currentWeekData.reduce((acc, curr) => acc + timeToMinutes(curr["Sleep Total"] || "00:00"), 0);
+    const totalLightSleep = currentWeekData.reduce((acc, curr) => acc + timeToMinutes(curr["Sleep Light"] || "00:00"), 0);
+    const totalDeepSleep = currentWeekData.reduce((acc, curr) => acc + timeToMinutes(curr["Sleep Deep"] || "00:00"), 0);
+    const totalRemSleep = currentWeekData.reduce((acc, curr) => acc + timeToMinutes(curr["Sleep REM"] || "00:00"), 0);
 
     const averageSleep = totalSleep / currentWeekData.length;
     const averageLightSleep = totalLightSleep / currentWeekData.length;
@@ -43,11 +55,11 @@ const Sleep = () => {
     const averageRemSleep = totalRemSleep / currentWeekData.length;
 
     setWeeklySummary({
-      totalSleep: totalSleep.toFixed(2),
-      averageSleep: averageSleep.toFixed(2),
-      averageLightSleep: averageLightSleep.toFixed(2),
-      averageDeepSleep: averageDeepSleep.toFixed(2),
-      averageRemSleep: averageRemSleep.toFixed(2),
+      totalSleep: minutesToTime(totalSleep),
+      averageSleep: minutesToTime(averageSleep),
+      averageLightSleep: minutesToTime(averageLightSleep),
+      averageDeepSleep: minutesToTime(averageDeepSleep),
+      averageRemSleep: minutesToTime(averageRemSleep),
     });
   };
 
