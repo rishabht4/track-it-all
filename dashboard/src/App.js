@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Link, Routes, Route } from "react-router-dom";
+import Weight from "./pages/Weight";
 import Workout from "./pages/Workout";
 import Sleep from "./pages/Sleep";
 import Nutrition from "./pages/Nutrition";
@@ -11,6 +12,7 @@ function App() {
       <div className="App">
         <nav className="horizontal-menu">
           <ul>
+            <li><Link to="/weight">Weight</Link></li>
             <li><Link to="/workout">Workout</Link></li>
             <li><Link to="/sleep">Sleep</Link></li>
             <li><Link to="/nutrition">Nutrition</Link></li>
@@ -19,6 +21,7 @@ function App() {
         </nav>
 
         <Routes>
+          <Route path="/weight" element={<Weight />} />
           <Route path="/workout" element={<Workout />} />
           <Route path="/sleep" element={<Sleep />} />
           <Route path="/nutrition" element={<Nutrition />} />
